@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.microsoft.projectoxford.faceapisample"
+        minSdkVersion 25
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // Include local lib mostly for debug purpose.
+    implementation project(':lib')
+    // Use the following line to include client library for Face API from Maven Central Repository
+    implementation 'com.microsoft.projectoxford:face:1.4.3'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //Facebook
+    //implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.facebook.android:facebook-share:[4,5)'
+    implementation files('src/main/java/libs/edu.mit.jwi_2.4.0_jdk.jar')
+}

@@ -1,0 +1,148 @@
+<!-- Copyright (c) Microsoft. All rights reserved. -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.microsoft.projectoxford.face.samples.ui.DetectionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/info"
+        android:layout_marginBottom="@dimen/view_margin"
+        android:baselineAligned="false"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/view_margin">
+
+            <RelativeLayout
+                android:id="@+id/image_control"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/view_margin"
+                android:layout_marginEnd="@dimen/view_margin" >
+
+                <!-- 좌측상단의 image: -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/image" />
+
+                <!-- SELECT IMAGE button -->
+                <Button
+                    android:id="@+id/select_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/select_image"
+                    android:onClick="selectImage"
+                    style="@style/ButtonStyle" />
+
+            </RelativeLayout>
+
+            <!-- SELECT된 이미지가 띄워지는 부분 -->
+            <ImageView
+                android:id="@id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/image_control"
+                android:layout_toEndOf="@id/image_control"
+                android:background="#E0E0E0"
+                android:contentDescription="@string/detection" />
+
+        </RelativeLayout>
+
+        <!-- 좌측중단의 result: -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/result" />
+
+        <!-- 각 face정보가 띄워지는 공간 -->
+        <ListView
+            android:id="@+id/list_detected_faces"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#E0E0E0"
+            android:verticalSpacing="@dimen/view_margin" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button_bar"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/button_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <!-- DETECT button -->
+        <Button
+            android:id="@+id/detect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/view_margin"
+            android:layout_marginEnd="@dimen/view_margin"
+            android:text="@string/detect"
+            android:onClick="detect"
+            style="@style/ButtonStyle" />
+
+        <LinearLayout
+            android:id="@+id/button_bar_2"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal" >
+
+            <!-- SHARE button -->
+            <Button
+                android:id="@+id/shareBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/view_margin"
+                android:layout_marginEnd="@dimen/view_margin"
+                android:text="@string/share"
+                android:onClick="share"
+                style="@style/ButtonStyle" />
+
+            <!-- RECOMMEND button -->
+            <Button
+                android:id="@+id/recommend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/view_margin"
+                android:layout_marginEnd="@dimen/view_margin"
+                android:text="@string/recommend"
+                android:onClick="recommend"
+                style="@style/ButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
